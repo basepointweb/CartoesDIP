@@ -118,6 +118,7 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 16px;
+      min-width: 0;
     }
 
     .card-right ul {
@@ -154,6 +155,7 @@
       white-space: nowrap;
       flex: 1;
       gap: 8px;
+      min-width: 0;
     }
     .ranking-block .ranking-label {
       font-size: 1.5rem;
@@ -176,6 +178,7 @@
       margin-top: 8px;
       padding-top: 12px;
       border-top: 1px solid #e0e6f0;
+      flex-wrap: nowrap;
     }
 
     .card-footer-row .org-block {
@@ -191,17 +194,11 @@
       object-fit: contain;
     }
 
-    .card-footer-row .org-name {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #0d2e6e;
-      letter-spacing: 0.5px;
-    }
-
     .footer-divider {
       width: 1px;
       height: 60px;
       background: #d0d8e8;
+      flex-shrink: 0;
     }
 
     .card-footer-row .qr-block {
@@ -210,6 +207,7 @@
       align-items: center;
       gap: 4px;
       text-align: center;
+      flex-shrink: 0;
     }
 
     .card-footer-row .qr-block .qr-label {
@@ -229,6 +227,125 @@
       object-fit: contain;
       border: 1px solid #aaa;
       border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* Impressão */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      h1.page-title {
+        margin: 0 0 5mm 0;
+        font-size: 13pt;
+        color: #0d2e6e;
+      }
+
+      .cards-container {
+        max-width: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5mm;
+      }
+
+      .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border-radius: 10px;
+      }
+
+      .card-header {
+        padding: 6px 10px;
+      }
+
+      .card-header .header-icon {
+        width: 28px;
+        height: 28px;
+      }
+
+      .card-header .header-category,
+      .card-header .header-country {
+        font-size: 10pt;
+      }
+
+      .card-body {
+        padding: 10px 10px 8px;
+        gap: 10px;
+      }
+
+      .card-left {
+        min-width: 115px;
+        max-width: 125px;
+        padding-right: 10px;
+      }
+
+      .card-left .flag-img {
+        width: 110px;
+        height: 70px;
+      }
+
+      .card-left .country-name {
+        margin-top: 5px;
+        font-size: 8pt;
+      }
+
+      .card-right ul {
+        gap: 6px;
+      }
+
+      .card-right ul li {
+        font-size: 8.5pt;
+        line-height: 1.22;
+      }
+
+      .ranking-block .ranking-label,
+      .ranking-block .ranking-number {
+        font-size: 10.5pt;
+      }
+
+      .card-footer-row {
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 6px;
+        padding-top: 7px;
+      }
+
+      .card-footer-row .org-logo {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-divider {
+        height: 44px;
+      }
+
+      .card-footer-row .qr-img {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #444;
+      }
+
+      .card-footer-row .qr-block .qr-label {
+        font-size: 8pt;
+      }
+
+      .card-footer-row .qr-block .qr-sublabel {
+        font-size: 7pt;
+      }
     }
 
     /* Responsivo */
@@ -356,7 +473,7 @@
         <div class="card-right">
           <ul>
             <!-- Crianças 7-9 -->
-            <li>Ore para que crian&#231;as deslocadas encontrem esperan&#231;a em Cristo.</li>
+            <li>Ore para que crian&#231;as deslocadas encontre esperan&#231;a em Cristo.</li>
             <li>Ore para que crian&#231;as tenham acesso &#224; Palavra de Deus.</li>
             <li>Ore para que crian&#231;as crist&#227;s sejam fortalecidas em meio ao medo.</li>
           </ul>
@@ -522,7 +639,7 @@
               <span class="ranking-number">16</span>
             </div>
             <div class="org-block">
-              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+              <img class="org-logo" src "./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
             </div>
             <div class="footer-divider"></div>
             <div class="qr-block">
@@ -1470,7 +1587,7 @@
       </div>
     </div>
 
-    <!-- ===================== CARTAO - MOCAMBIQUE ===================== -->
+    <!-- ===================== CARTAO - MO&#199;AMBIQUE ===================== -->
     <div class="card">
       <div class="card-header">
         <img class="header-icon" src="icone-coral.png" alt="Icone Coral" onerror="this.style.display='none'"/>
@@ -1791,7 +1908,7 @@
           <ul>
             <li>Ore para que louvores tragam descanso aos cansados.</li>
             <li>Ore para que Deus seja glorificado mesmo em meio &#224; persecui&#231;&#227;o.</li>
-            <li>Ore para que a igreja perseguida continue exaltando o nome de Jesus.</li>
+            <li>Ore para que a igreja perseguita continue exaltando o nome de Jesus.</li>
           </ul>
           <div class="card-footer-row">
             <div class="ranking-block">
@@ -1941,7 +2058,7 @@
         </div>
         <div class="card-right">
           <ul>
-            <li>Ore para que crist&#227;os secretos sejam encorajados pela adora&#231;&#227;o.</li>
+            <li>Ore para que crist&#227;s secretos sejam encorajados pela adora&#231;&#227;o.</li>
             <li>Ore para que louvores tragam cura emocional aos traumatizados.</li>
             <li>Ore para que a m&#250;sica fortale&#231;a mission&#225;rios em lugares perigosos.</li>
           </ul>
