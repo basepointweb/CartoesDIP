@@ -8,14 +8,15 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #f0f4f8;
+      background-color: #2f2927;
       font-family: 'Segoe UI', Arial, sans-serif;
       padding: 30px 20px;
+      color: #f5efe6;
     }
 
     h1.page-title {
       text-align: center;
-      color: #0d2e6e;
+      color: #c79a57;
       margin-bottom: 30px;
       font-size: 1.6rem;
     }
@@ -29,21 +30,22 @@
     }
 
     .card {
-      background: #ffffff;
+      background: #f5efe6;
       border-radius: 16px;
-      border: 1px solid #d0d8e8;
+      border: 1px solid #8f6a3a;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.28);
     }
 
     /* Header */
     .card-header {
-      background-color: #0d2e6e;
-      color: #ffffff;
+      background-color: #4a3b34;
+      color: #f8f4ee;
       display: flex;
       align-items: center;
       padding: 12px 20px;
       gap: 16px;
+      border-bottom: 2px solid #c79a57;
     }
 
     .card-header .header-icon {
@@ -59,12 +61,13 @@
       font-weight: 800;
       letter-spacing: 0.5px;
       white-space: nowrap;
+      color: #d8ab67;
     }
 
     .card-header .header-divider {
       width: 2px;
       height: 36px;
-      background: rgba(255,255,255,0.4);
+      background: rgba(216,171,103,0.45);
       flex-shrink: 0;
     }
 
@@ -72,6 +75,7 @@
       font-size: 1.3rem;
       font-weight: 800;
       letter-spacing: 0.5px;
+      color: #ffffff;
     }
 
     /* Body */
@@ -89,7 +93,7 @@
       min-width: 180px;
       max-width: 200px;
       flex-shrink: 0;
-      border-right: 1px solid #d0d8e8;
+      border-right: 1px solid #d8c2a3;
       padding-right: 20px;
     }
 
@@ -97,16 +101,16 @@
       width: 160px;
       height: 100px;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #b89463;
       object-fit: cover;
-      background: #e8eef5;
+      background: #e8dccb;
     }
 
     .card-left .country-name {
       margin-top: 12px;
       font-size: 1rem;
       font-weight: 800;
-      color: #0d2e6e;
+      color: #6f4e2c;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -119,6 +123,7 @@
       justify-content: space-between;
       gap: 16px;
       min-width: 0;
+      color: #2f2927;
     }
 
     .card-right ul {
@@ -134,13 +139,13 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 0.97rem;
-      color: #222;
+      color: #2f2927;
       line-height: 1.5;
     }
 
     .card-right ul li::before {
       content: "\25CF";
-      color: #0d2e6e;
+      color: #b8863b;
       font-size: 0.7rem;
       margin-top: 5px;
       flex-shrink: 0;
@@ -160,12 +165,12 @@
     .ranking-block .ranking-label {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #1a1a2e;
+      color: #4a3b34;
     }
     .ranking-block .ranking-number {
       font-size: 1.5rem;
       font-weight: 900;
-      color: #c0392b;
+      color: #c79a57;
       line-height: 1.1;
     }
 
@@ -177,7 +182,7 @@
       gap: 16px;
       margin-top: 8px;
       padding-top: 12px;
-      border-top: 1px solid #e0e6f0;
+      border-top: 1px solid #d8c2a3;
       flex-wrap: nowrap;
     }
 
@@ -197,7 +202,7 @@
     .footer-divider {
       width: 1px;
       height: 60px;
-      background: #d0d8e8;
+      background: #cdb08a;
       flex-shrink: 0;
     }
 
@@ -212,22 +217,23 @@
 
     .card-footer-row .qr-block .qr-label {
       font-size: 0.85rem;
-      color: #1a7abf;
-      font-weight: 600;
+      color: #8f6a3a;
+      font-weight: 700;
     }
 
     .card-footer-row .qr-block .qr-sublabel {
       font-size: 0.78rem;
-      color: #555;
+      color: #6b5a4d;
     }
 
     .card-footer-row .qr-img {
       width: 72px;
       height: 72px;
       object-fit: contain;
-      border: 1px solid #aaa;
+      border: 1px solid #8f6a3a;
       border-radius: 4px;
       flex-shrink: 0;
+      background: #fff;
     }
 
     /* Impressão */
@@ -245,12 +251,13 @@
       body {
         background: #ffffff;
         padding: 0;
+        color: #2f2927;
       }
 
       h1.page-title {
         margin: 0 0 5mm 0;
         font-size: 13pt;
-        color: #0d2e6e;
+        color: #8f6a3a;
       }
 
       .cards-container {
@@ -336,7 +343,7 @@
       .card-footer-row .qr-img {
         width: 90px;
         height: 90px;
-        border: 1px solid #444;
+        border: 1px solid #8f6a3a;
       }
 
       .card-footer-row .qr-block .qr-label {
@@ -353,7 +360,7 @@
       .card-body { flex-direction: column; }
       .card-left {
         border-right: none;
-        border-bottom: 1px solid #d0d8e8;
+        border-bottom: 1px solid #d8c2a3;
         padding-right: 0;
         padding-bottom: 16px;
         max-width: 100%;
@@ -1497,7 +1504,7 @@
               <span class="ranking-number">21</span>
             </div>
             <div class="org-block">
-              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.styledisplay='none'"/>
             </div>
             <div class="footer-divider"></div>
             <div class="qr-block">
