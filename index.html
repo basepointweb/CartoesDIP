@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DIP Cartoes - Criancas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 30px 20px;
+    }
+
+    h1.page-title {
+      text-align: center;
+      color: #0d2e6e;
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #d0d8e8;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    /* Header */
+    .card-header {
+      background-color: #0d2e6e;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      gap: 16px;
+    }
+
+    .card-header .header-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+
+    .card-header .header-category {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .card-header .header-divider {
+      width: 2px;
+      height: 36px;
+      background: rgba(255,255,255,0.4);
+      flex-shrink: 0;
+    }
+
+    .card-header .header-country {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* Body */
+    .card-body {
+      display: flex;
+      padding: 24px 20px 20px;
+      gap: 20px;
+    }
+
+    .card-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 180px;
+      max-width: 200px;
+      flex-shrink: 0;
+      border-right: 1px solid #d0d8e8;
+      padding-right: 20px;
+    }
+
+    .card-left .flag-img {
+      width: 160px;
+      height: 100px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      object-fit: cover;
+      background: #e8eef5;
+    }
+
+    .card-left .country-name {
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #0d2e6e;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .card-right ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-right ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.97rem;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    .card-right ul li::before {
+      content: "\25CF";
+      color: #0d2e6e;
+      font-size: 0.7rem;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid #e0e6f0;
+    }
+
+    .card-footer-row .org-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-footer-row .org-logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .card-footer-row .org-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0d2e6e;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-divider {
+      width: 1px;
+      height: 60px;
+      background: #d0d8e8;
+    }
+
+    .card-footer-row .qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .card-footer-row .qr-block .qr-label {
+      font-size: 0.85rem;
+      color: #1a7abf;
+      font-weight: 600;
+    }
+
+    .card-footer-row .qr-block .qr-sublabel {
+      font-size: 0.78rem;
+      color: #555;
+    }
+
+    .card-footer-row .qr-img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .card-body { flex-direction: column; }
+      .card-left {
+        border-right: none;
+        border-bottom: 1px solid #d0d8e8;
+        padding-right: 0;
+        padding-bottom: 16px;
+        max-width: 100%;
+        flex-direction: row;
+        gap: 16px;
+      }
+      .card-header .header-category,
+      .card-header .header-country { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">DIP &#8212; Cart&#245;es de Ora&#231;&#227;o</h1>
+
+  <div class="cards-container">
+
+    <!-- ===================== CARTAO 1 ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <!-- Substitua o src pelo icone da categoria -->
+        <img class="header-icon" src="icone-criancas.png" alt="Icone Criancas" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">COREIA DO NORTE</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <!-- Substitua o src pela imagem da bandeira -->
+          <img class="flag-img" src="./Bandeiras/Bandeira-Coreia-do-Norte.webp" alt="Bandeira Coreia do Norte" onerror="this.style.display='none'"/>
+          <span class="country-name">Coreia do Norte</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as crist&#227;s tenham comunh&#227;o segura com outros crist&#227;os.</li>
+            <li>Ore para que crian&#231;as conhe&#231;am a esperan&#231;a do evangelho.</li>
+            <li>Ore para que crian&#231;as sejam protegidas da fome e da viol&#234;ncia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <!-- Substitua pelo logo da organizacao -->
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <!-- Substitua pelo QR Code correspondente -->
+            <img class="qr-img" src="qrcode-coreia-norte.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fim cartao 1 -->
+
+
+    <!-- ===================== CARTAO 2 ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">AFEGANIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Afeganistao.avif" alt="Bandeira Afeganistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Afeganist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as afeg&#227;s tenham acesso &#224; educa&#231;&#227;o e ao futuro.</li>
+            <li>Ore para que crian&#231;as sejam protegidas da viol&#234;ncia e do extremismo.</li>
+            <li>Ore para que o amor de Cristo chegue ao cora&#231;&#227;o de cada crian&#231;a.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-afeganistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fim cartao 2 -->
+
+
+    <!-- ===================== CARTAO - ARABIA SAUDITA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">AR&#193;BIA SAUDITA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Arabia-Saudita.avif" alt="Bandeira Arabia Saudita" onerror="this.style.display='none'"/>
+          <span class="country-name">Ar&#225;bia Saudita</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-arabia-saudita.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - ARGELIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">ARG&#201;LIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Argelia.avif" alt="Bandeira Argelia" onerror="this.style.display='none'"/>
+          <span class="country-name">Arg&#233;lia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-argelia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - BANGLADESH ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">BANGLADESH</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Bngladesh.avif" alt="Bandeira Bangladesh" onerror="this.style.display='none'"/>
+          <span class="country-name">Bangladesh</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-bangladesh.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - BRUNEI ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">BRUNEI</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Brunei.avif" alt="Bandeira Brunei" onerror="this.style.display='none'"/>
+          <span class="country-name">Brunei</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-brunei.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - BURKINA FASO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">BURKINA FASO</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Burkina-Faso.avif" alt="Bandeira Burkina Faso" onerror="this.style.display='none'"/>
+          <span class="country-name">Burkina Faso</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-burkina-faso.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - BUTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">BUT&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Butao.webp" alt="Bandeira Butao" onerror="this.style.display='none'"/>
+          <span class="country-name">But&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-butao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - CAMAROES ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CAMAR&#213;ES</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Camaroes.avif" alt="Bandeira Camaroes" onerror="this.style.display='none'"/>
+          <span class="country-name">Camar&#245;es</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-camaroes.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - CAZAQUISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CAZAQUIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Cazaquistao.avif" alt="Bandeira Cazaquistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Cazaquist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-cazaquistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - CHADE ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CHADE</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Chade.avif" alt="Bandeira Chade" onerror="this.style.display='none'"/>
+          <span class="country-name">Chade</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-chade.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - CHINA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CHINA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-China.avif" alt="Bandeira China" onerror="this.style.display='none'"/>
+          <span class="country-name">China</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-china.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - COLOMBIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">COL&#212;MBIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Colombia.avif" alt="Bandeira Colombia" onerror="this.style.display='none'"/>
+          <span class="country-name">Col&#244;mbia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-colombia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - COMORES ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">COMORES</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Comores.avif" alt="Bandeira Comores" onerror="this.style.display='none'"/>
+          <span class="country-name">Comores</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-comores.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - CUBA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CUBA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Cuba.avif" alt="Bandeira Cuba" onerror="this.style.display='none'"/>
+          <span class="country-name">Cuba</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-cuba.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - EGITO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">EGITO</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-egito.avif" alt="Bandeira Egito" onerror="this.style.display='none'"/>
+          <span class="country-name">Egito</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-egito.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - ERITEIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">ERITEIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Eriteia.avif" alt="Bandeira Eriteia" onerror="this.style.display='none'"/>
+          <span class="country-name">Eriteia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-eriteia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - ETIOPIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">ETI&#211;PIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Etiopia.avif" alt="Bandeira Etiopia" onerror="this.style.display='none'"/>
+          <span class="country-name">Eti&#243;pia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-etiopia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - IEMEN ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">I&#202;MEN</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Iemen.avif" alt="Bandeira Iemen" onerror="this.style.display='none'"/>
+          <span class="country-name">I&#234;men</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-iemen.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - INDIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">&#205;NDIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-India.avif" alt="Bandeira India" onerror="this.style.display='none'"/>
+          <span class="country-name">&#205;ndia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-india.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - IRA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">IR&#195;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-ira.avif" alt="Bandeira Ira" onerror="this.style.display='none'"/>
+          <span class="country-name">Ir&#227;</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-ira.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - IRAQUE ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">IRAQUE</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Iraque.avif" alt="Bandeira Iraque" onerror="this.style.display='none'"/>
+          <span class="country-name">Iraque</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-iraque.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - JORDANIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">JORD&#194;NIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Jordania.avif" alt="Bandeira Jordania" onerror="this.style.display='none'"/>
+          <span class="country-name">Jord&#226;nia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-jordania.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - LAOS ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">LAOS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Laos.avif" alt="Bandeira Laos" onerror="this.style.display='none'"/>
+          <span class="country-name">Laos</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-laos.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - LIBIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">L&#205;BIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Libia.avif" alt="Bandeira Libia" onerror="this.style.display='none'"/>
+          <span class="country-name">L&#237;bia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-libia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MALDIVAS ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MALDIVAS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Maldivas.avif" alt="Bandeira Maldivas" onerror="this.style.display='none'"/>
+          <span class="country-name">Maldivas</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-maldivas.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MALI ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MALI</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Mali.avif" alt="Bandeira Mali" onerror="this.style.display='none'"/>
+          <span class="country-name">Mali</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-mali.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MARROCOS ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MARROCOS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Marrocos.avif" alt="Bandeira Marrocos" onerror="this.style.display='none'"/>
+          <span class="country-name">Marrocos</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-marrocos.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MAURITANIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MAURIT&#194;NIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Mauritania.avif" alt="Bandeira Mauritania" onerror="this.style.display='none'"/>
+          <span class="country-name">Maurit&#226;nia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-mauritania.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MEXICO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">M&#201;XICO</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Mexico.avif" alt="Bandeira Mexico" onerror="this.style.display='none'"/>
+          <span class="country-name">M&#233;xico</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-mexico.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MIANMAR ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MIANMAR</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Mianmar.avif" alt="Bandeira Mianmar" onerror="this.style.display='none'"/>
+          <span class="country-name">Mianmar</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-mianmar.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - MOCAMBIQUE ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">MO&#199;AMBIQUE</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Mocambique.avif" alt="Bandeira Mocambique" onerror="this.style.display='none'"/>
+          <span class="country-name">Mo&#231;ambique</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-mocambique.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - NEPAL ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">NEPAL</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Nepal.avif" alt="Bandeira Nepal" onerror="this.style.display='none'"/>
+          <span class="country-name">Nepal</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-nepal.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - NICARAGUA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">NICAR&#193;GUA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Nicaragua.avif" alt="Bandeira Nicaragua" onerror="this.style.display='none'"/>
+          <span class="country-name">Nicar&#225;gua</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-nicaragua.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - NIGER ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">N&#205;GER</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Niger.avif" alt="Bandeira Niger" onerror="this.style.display='none'"/>
+          <span class="country-name">N&#237;ger</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-niger.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - NIGERIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">NIG&#201;RIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Nigeria.avif" alt="Bandeira Nigeria" onerror="this.style.display='none'"/>
+          <span class="country-name">Nig&#233;ria</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-nigeria.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - OMA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">OM&#195;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Oma.avif" alt="Bandeira Oma" onerror="this.style.display='none'"/>
+          <span class="country-name">Om&#227;</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-oma.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - QATAR ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">CATAR</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Qatar.avif" alt="Bandeira Qatar" onerror="this.style.display='none'"/>
+          <span class="country-name">Catar</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-qatar.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - QUIRGUISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">QUIRGUIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Quirguistao.avif" alt="Bandeira Quirguistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Quirguist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-quirguistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - REP. CENTRO-AFRICANA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">REP. CENTRO-AFRICANA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Rep-Centro-Africana.avif" alt="Bandeira Rep Centro Africana" onerror="this.style.display='none'"/>
+          <span class="country-name">Rep. Centro-Africana</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-rep-centro-africana.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - REP. DEM. DO CONGO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">REP. DEM. DO CONGO</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Rep-Democratica-do-Congo.avif" alt="Bandeira Rep Democratica do Congo" onerror="this.style.display='none'"/>
+          <span class="country-name">Rep. Dem. do Congo</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-rep-dem-congo.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - SIRIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">S&#205;RIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Siria.avif" alt="Bandeira Siria" onerror="this.style.display='none'"/>
+          <span class="country-name">S&#237;ria</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-siria.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - SOMALIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">SOM&#193;LIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Somalia.avif" alt="Bandeira Somalia" onerror="this.style.display='none'"/>
+          <span class="country-name">Som&#225;lia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-somalia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - SUDAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">SUD&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Sudao.avif" alt="Bandeira Sudao" onerror="this.style.display='none'"/>
+          <span class="country-name">Sud&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-sudao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - TAJIQUISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">TAJIQUIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-tajiquistao.avif" alt="Bandeira Tajiquistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Tajiquist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-tajiquistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - TUNISIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">TUN&#205;SIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Tunisia.avif" alt="Bandeira Tunisia" onerror="this.style.display='none'"/>
+          <span class="country-name">Tun&#237;sia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-tunisia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - TURCOMENISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">TURCOMENIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Turcomenistao.avif" alt="Bandeira Turcomenistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Turcomenist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-turcomenistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - TURQUIA ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">TURQUIA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Turuia.avif" alt="Bandeira Turquia" onerror="this.style.display='none'"/>
+          <span class="country-name">Turquia</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-turquia.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - UZBEQUISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">UZBEQUIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira-Usbequistao.avif" alt="Bandeira Uzbequistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Uzbequist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-uzbequistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== CARTAO - PAQUISTAO ===================== -->
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="icone-criancas.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CRIAN&#199;AS</span>
+        <div class="header-divider"></div>
+        <span class="header-country">PAQUIST&#195;O</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="./Bandeiras/Bandeira_Paquistao.avif" alt="Bandeira Paquistao" onerror="this.style.display='none'"/>
+          <span class="country-name">Paquist&#227;o</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ore para que crian&#231;as conhe&#231;am a liberdade encontrada em Cristo.</li>
+            <li>Ore para que crian&#231;as sejam protegidas e amadas.</li>
+            <li>Ore para que o evangelho alcance cada fam&#237;lia.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="./Logos/LOGO_SEMIADETE_FUNDO_BRANCO.jpeg" alt="Logo Semiadet" onerror="this.style.display='none'"/>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="qrcode-paquistao.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== ADICIONE MAIS CARTOES ABAIXO =====================
+    <div class="card">
+      <div class="card-header">
+        <img class="header-icon" src="SEU-ICONE.png" alt="Icone" onerror="this.style.display='none'"/>
+        <span class="header-category">CATEGORIA</span>
+        <div class="header-divider"></div>
+        <span class="header-country">NOME DO PAIS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-left">
+          <img class="flag-img" src="SUA-BANDEIRA.png" alt="Bandeira" onerror="this.style.display='none'"/>
+          <span class="country-name">Nome do Pais</span>
+        </div>
+        <div class="card-right">
+          <ul>
+            <li>Ponto de oracao 1.</li>
+            <li>Ponto de oracao 2.</li>
+            <li>Ponto de oracao 3.</li>
+          </ul>
+          <div class="card-footer-row">
+            <div class="org-block">
+              <img class="org-logo" src="logo-semiadet.png" alt="Logo" onerror="this.style.display='none'"/>
+              <span class="org-name">SEMIADET</span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="qr-block">
+              <span class="qr-label">Leia o QR Code</span>
+              <span class="qr-sublabel">para saber mais</span>
+            </div>
+            <img class="qr-img" src="SEU-QRCODE.png" alt="QR Code" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    ===================== -->
+
+  </div>
+
+</body>
+</html>
