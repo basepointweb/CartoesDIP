@@ -378,465 +378,78 @@
       { src: './Logos/logoassembleia.png', alt: 'Logo Assembleia' }
     ];
 
+    const categoryIcons = {
+      'ORE PELAS CRIANÇAS': 'icone-criancas.png',
+      'ORE PELOS ADOLESCENTES': 'icone-adolescentes.png',
+      'ORE PELOS JOVENS': 'icone-jovens.png',
+      'ORE PELAS MULHERES': 'icone-mulheres.png',
+      'ORE PELOS OBREIROS E LÍDERES': 'icone-lideres.png',
+      'ORE PELOS MISSIONÁRIOS': 'icone-missionarios.png',
+      'ORE PELOS MÚSICOS': 'icone-musicos.png'
+    };
+
     const cards = [
-      {
-        icon: 'icone-criancas.png',
-        iconAlt: 'Icone Criancas',
-        category: 'CRIANÇAS',
-        countryHeader: 'COREIA DO NORTE',
-        flag: './Bandeiras/Bandeira-Coreia-do-Norte.webp',
-        flagAlt: 'Bandeira Coreia do Norte',
-        countryName: 'Coreia do Norte',
-        prayers: [
-          'Ore para que as crianças cristãs perseguidas sejam protegidas da violência.',
-          'Ore para que crianças refugiadas encontrem abrigo e alimento.',
-          'Ore para que crianças traumatizadas sejam curadas por Deus.'
-        ],
-        ranking: '1',
-        qr: './QRCodes/QRCode_CoreiaDoNorte.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'AFEGANISTÃO',
-        flag: './Bandeiras/Bandeira-Afeganistao.avif', flagAlt: 'Bandeira Afeganistao', countryName: 'Afeganistão',
-        prayers: [
-          'Ore para que crianças conheçam o amor de Jesus desde cedo.',
-          'Ore para que crianças cristãs permaneçam firmes na fé.',
-          'Ore para que meninas sejam protegidas de abusos e exploração.'
-        ], ranking: '11', qr: './QRCodes/QRCode_Afeganistao.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'ARÁBIA SAUDITA',
-        flag: './Bandeiras/Bandeira-Arabia-Saudita.avif', flagAlt: 'Bandeira Arabia Saudita', countryName: 'Arábia Saudita',
-        prayers: [
-          'Ore para que crianças deslocadas encontrem esperança em Cristo.',
-          'Ore para que crianças tenham acesso à Palavra de Deus.',
-          'Ore para que crianças cristãs sejam fortalecidas em meio ao medo.'
-        ], ranking: '13', qr: './QRCodes/QRCode_ArabiaSaudita.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'ARGÉLIA',
-        flag: './Bandeiras/Bandeira-Argelia.avif', flagAlt: 'Bandeira Argelia', countryName: 'Argélia',
-        prayers: [
-          'Ore para que famílias cristãs consigam proteger seus filhos.',
-          'Ore para que crianças perseguidas encontrem paz em Jesus.',
-          'Ore para que Deus console crianças órfãs pela perseguição.'
-        ], ranking: '20', qr: './QRCodes/QRCode_Argelia.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'BANGLADESH',
-        flag: './Bandeiras/Bandeira-Bngladesh.avif', flagAlt: 'Bandeira Bangladesh', countryName: 'Bangladesh',
-        prayers: [
-          'Ore para que crianças cristãs tenham comunhão segura.',
-          'Ore para que crianças conheçam a esperança do evangelho.',
-          'Ore para que crianças sejam livres da fome e da guerra.'
-        ], ranking: '33', qr: './QRCodes/QRCode_Bangladesh.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'BRUNEI',
-        flag: './Bandeiras/Bandeira-Brunei.avif', flagAlt: 'Bandeira Brunei', countryName: 'Brunei',
-        prayers: [
-          'Ore para que Deus proteja crianças em campos de refugiados.',
-          'Ore para que crianças cristãs cresçam em fé e coragem.',
-          'Ore para que crianças perseguidas sejam consoladas pelo Espírito Santo.'
-        ], ranking: '50', qr: './QRCodes/QRCode_Brunei.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'BURKINA FASO',
-        flag: './Bandeiras/Bandeira-Burkina-Faso.avif', flagAlt: 'Bandeira Burkina Faso', countryName: 'Burkina Faso',
-        prayers: [
-          'Ore para que meninas cristãs sejam protegidas de casamentos forçados.',
-          'Ore para que crianças tenham acesso à educação com segurança.',
-          'Ore para que crianças cristãs encontrem alegria mesmo na perseguição.'
-        ], ranking: '16', qr: './QRCodes/QRCode_BurkinaFaso.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'BUTÃO',
-        flag: './Bandeiras/Bandeira-Butao.webp', flagAlt: 'Bandeira Butao', countryName: 'Butão',
-        prayers: [
-          'Ore para que crianças sejam alcançadas pelo amor de Cristo.',
-          'Ore para que crianças cristãs não percam a esperança.',
-          'Ore para que Deus fortaleça pais cristãos na criação dos filhos.'
-        ], ranking: '34', qr: './QRCodes/QRCode_Butao.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'CAMARÕES',
-        flag: './Bandeiras/Bandeira-Camaroes.avif', flagAlt: 'Bandeira Camaroes', countryName: 'Camarões',
-        prayers: [
-          'Ore para que crianças perseguidas sejam protegidas da violência extremista.',
-          'Ore para que crianças tenham coragem para seguir Jesus.',
-          'Ore para que crianças cristãs sejam luz em suas famílias.'
-        ], ranking: '37', qr: './QRCodes/QRCode_Camaroes.png'
-      },
-      {
-        icon: 'icone-criancas.png', iconAlt: 'Icone', category: 'CRIANÇAS', countryHeader: 'CAZAQUISTÃO',
-        flag: './Bandeiras/Bandeira-Cazaquistao.avif', flagAlt: 'Bandeira Cazaquistao', countryName: 'Cazaquistão',
-        prayers: [
-          'Ore para que Deus cure traumas causados pela perseguição.',
-          'Ore para que crianças perseguidas sintam a presença de Deus.',
-          'Ore para que uma nova geração de seguidores de Jesus seja levantada.'
-        ], ranking: '45', qr: './QRCodes/QRCode_Cazaquistao.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'CHADE',
-        flag: './Bandeiras/Bandeira-Chade.avif', flagAlt: 'Bandeira Chade', countryName: 'Chade',
-        prayers: [
-          'Ore para que adolescentes cristãos permaneçam firmes na fé.',
-          'Ore para que adolescentes perseguidos encontrem esperança em Cristo.',
-          'Ore para que adolescentes sejam protegidos da violência e intimidação.'
-        ], ranking: '2', qr: './QRCodes/QRCode_Chade.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'CHINA',
-        flag: './Bandeiras/Bandeira-China.avif', flagAlt: 'Bandeira China', countryName: 'China',
-        prayers: [
-          'Ore para que adolescentes cristãos tenham coragem para seguir Jesus.',
-          'Ore para que adolescentes encontrem comunhão segura com outros cristãos.',
-          'Ore para que adolescentes sejam fortalecidos emocionalmente.'
-        ], ranking: '17', qr: './QRCodes/QRCode_China.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'COLÔMBIA',
-        flag: './Bandeiras/Bandeira-Colombia.avif', flagAlt: 'Bandeira Colombia', countryName: 'Colômbia',
-        prayers: [
-          'Ore para que adolescentes refugiados encontrem acolhimento.',
-          'Ore para que adolescentes perseguidos sejam protegidos do recrutamento forçado.',
-          'Ore para que adolescentes cristãos tenham acesso à Bíblia.'
-        ], ranking: '47', qr: './QRCodes/QRCode_Colombia.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'COMORES',
-        flag: './Bandeiras/Bandeira-Comores.avif', flagAlt: 'Bandeira Comores', countryName: 'Comores',
-        prayers: [
-          'Ore para que adolescentes encontrem paz em meio ao medo.',
-          'Ore para que adolescentes sejam protegidos de abusos e exploração.',
-          'Ore para que adolescentes cristãos não desistam da fé.'
-        ], ranking: '14', qr: './QRCodes/QRCode_Comores.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'CUBA',
-        flag: './Bandeiras/Bandeira-Cuba.avif', flagAlt: 'Bandeira Cuba', countryName: 'Cuba',
-        prayers: [
-          'Ore para que adolescentes encontrem apoio em suas famílias.',
-          'Ore para que adolescentes cristãos sejam fortalecidos pelo Espírito Santo.',
-          'Ore para que adolescentes encontrem esperança mesmo na perseguição.'
-        ], ranking: '24', qr: './QRCodes/QRCode_Cuba.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'EGITO',
-        flag: './Bandeiras/Bandeira-egito.avif', flagAlt: 'Bandeira Egito', countryName: 'Egito',
-        prayers: [
-          'Ore para que adolescentes sejam protegidos da discriminação.',
-          'Ore para que adolescentes tenham sabedoria para compartilhar a fé.',
-          'Ore para que adolescentes perseguidos sintam o amor de Deus.'
-        ], ranking: '42', qr: './QRCodes/QRCode_Egito.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'ERITEIA',
-        flag: './Bandeiras/Bandeira-Eriteia.avif', flagAlt: 'Bandeira Eriteia', countryName: 'Eriteia',
-        prayers: [
-          'Ore para que adolescentes cristãos sejam luz em suas escolas.',
-          'Ore para que adolescentes encontrem segurança em meio aos conflitos.',
-          'Ore para que adolescentes sejam curados de traumas emocionais.'
-        ], ranking: '5', qr: './QRCodes/QRCode_Eritreia.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'ETIÓPIA',
-        flag: './Bandeiras/Bandeira-Etiopia.avif', flagAlt: 'Bandeira Etiopia', countryName: 'Etiópia',
-        prayers: [
-          'Ore para que adolescentes cristãos permaneçam cheios de esperança.',
-          'Ore para que adolescentes tenham oportunidades de estudar em paz.',
-          'Ore para que adolescentes perseguidos sejam consolados por Deus.'
-        ], ranking: '36', qr: './QRCodes/QRCode_Etiopia.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'IÊMEN',
-        flag: './Bandeiras/Bandeira-Iemen.avif', flagAlt: 'Bandeira Iemen', countryName: 'Iêmen',
-        prayers: [
-          'Ore para que jovens cristãos permaneçam firmes diante da perseguição.',
-          'Ore para que jovens tenham coragem para seguir Jesus.',
-          'Ore para que jovens perseguidos sejam fortalecidos na f&#234;.'
-        ], ranking: '3', qr: './QRCodes/QRCode_Iemen.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'ÍNDIA',
-        flag: './Bandeiras/Bandeira-India.avif', flagAlt: 'Bandeira India', countryName: 'Índia',
-        prayers: [
-          'Ore para que jovens encontrem esperança em Cristo.',
-          'Ore para que jovens cristãos tenham sabedoria para evangelizar.',
-          'Ore para que jovens refugiados encontrem acolhimento e provisão.'
-        ], ranking: '12', qr: './QRCodes/QRCode_India.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'IRÃ',
-        flag: './Bandeiras/Bandeira-ira.avif', flagAlt: 'Bandeira Ira', countryName: 'Irã',
-        prayers: [
-          'Ore para que jovens sejam protegidos da violência extremista.',
-          'Ore para que jovens cristãos sejam fortalecidos emocionalmente.',
-          'Ore para que jovens encontrem oportunidades de estudo e trabalho.'
-        ], ranking: '10', qr: './QRCodes/QRCode_Ira.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'IRAQUE',
-        flag: './Bandeiras/Bandeira-Iraque.avif', flagAlt: 'Bandeira Iraque', countryName: 'Iraque',
-        prayers: [
-          'Ore para que jovens perseguidos sejam encorajados pela Palavra de Deus.',
-          'Ore para que jovens cristãos tenham comunhão segura.',
-          'Ore para que jovens sejam protegidos do recrutamento forçado.'
-        ], ranking: '18', qr: './QRCodes/QRCode_Iraque.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'JORDÂNIA',
-        flag: './Bandeiras/Bandeira-Jordania.avif', flagAlt: 'Bandeira Jordania', countryName: 'Jordânia',
-        prayers: [
-          'Ore para que jovens encontrem paz em meio aos conflitos.',
-          'Ore para que jovens cristãos sejam luz em suas comunidades.',
-          'Ore para que jovens permaneçam firmes mesmo em secreto.'
-        ], ranking: '49', qr: './QRCodes/QRCode_Jordania.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'LAOS',
-        flag: './Bandeiras/Bandeira-Laos.avif', flagAlt: 'Bandeira Laos', countryName: 'Laos',
-        prayers: [
-          'Ore para que jovens perseguidos sejam consolados por Deus.',
-          'Ore para que jovens encontrem alegria no Senhor.',
-          'Ore para que jovens líderes sejam guiados pelo Espírito Santo.'
-        ], ranking: '28', qr: './QRCodes/QRCode_Laos.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'LÍBIA',
-        flag: './Bandeiras/Bandeira-Libia.avif', flagAlt: 'Bandeira Libia', countryName: 'Líbia',
-        prayers: [
-          'Ore para que jovens tenham coragem para compartilhar o evangelho.',
-          'Ore para que jovens cristãos sejam protegidos da discriminação.',
-          'Ore para que jovens encontrem segurança em meio à perseguição.'
-        ], ranking: '9', qr: './QRCodes/QRCode_Libia.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'MALDIVAS',
-        flag: './Bandeiras/Bandeira-Maldivas.avif', flagAlt: 'Bandeira Maldivas', countryName: 'Maldivas',
-        prayers: [
-          'Ore para que jovens tenham esperança em tempos difíceis.',
-          'Ore para que jovens cristãos sejam fortalecidos pelo louvor.',
-          'Ore para que jovens perseguidos tenham suas necessidades supridas.'
-        ], ranking: '19', qr: './QRCodes/QRCode_Maldivas.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'MALI',
-        flag: './Bandeiras/Bandeira-Mali.avif', flagAlt: 'Bandeira Mali', countryName: 'Mali',
-        prayers: [
-          'Ore para que jovens cristãos permaneçam unidos em oração.',
-          'Ore para que jovens encontrem propósito em Cristo.',
-          'Ore para que jovens sejam usados por Deus em países perseguidos.'
-        ], ranking: '15', qr: './QRCodes/QRCode_Mali.png'
-      },
-      {
-        icon: 'icone-jovens.png', iconAlt: 'Icone', category: 'JOVENS', countryHeader: 'MARROCOS',
-        flag: './Bandeiras/Bandeira-Marrocos.avif', flagAlt: 'Bandeira Marrocos', countryName: 'Marrocos',
-        prayers: [
-          'Ore para que jovens cristãos tenham fé e perseverança.',
-          'Ore para que jovens perseguidos sejam protegidos da prisão e violência.',
-          'Ore para que Deus levante uma geração de jovens apaixonados por Jesus.'
-        ], ranking: '23', qr: './QRCodes/QRCode_Marrocos.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'MAURITÂNIA',
-        flag: './Bandeiras/Bandeira-Mauritania.avif', flagAlt: 'Bandeira Mauritania', countryName: 'Mauritânia',
-        prayers: [
-          'Ore para que adolescentes encontrem alegria em Cristo.',
-          'Ore para que adolescentes sejam protegidos da pressão extremista.',
-          'Ore para que adolescentes cristãos cresçam em maturidade espiritual.'
-        ], ranking: '21', qr: './QRCodes/QRCode_Mauritania.png'
-      },
-      {
-        icon: 'icone-adolescentes.png', iconAlt: 'Icone', category: 'ADOLESCENTES', countryHeader: 'MÉXICO',
-        flag: './Bandeiras/Bandeira-Mexico.avif', flagAlt: 'Bandeira Mexico', countryName: 'México',
-        prayers: [
-          'Ore para que adolescentes tenham coragem diante das ameaças.',
-          'Ore para que adolescentes perseguidos encontrem descanso em Deus.',
-          'Ore para que Deus levante adolescentes comprometidos com o evangelho.'
-        ], ranking: '30', qr: './QRCodes/QRCode_Mexico.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'MIANMAR',
-        flag: './Bandeiras/Bandeira-Mianmar.avif', flagAlt: 'Bandeira Mianmar', countryName: 'Mianmar',
-        prayers: [
-          'Ore para que louvores fortaleçam os cristãos perseguidos.',
-          'Ore para que a adoração console famílias em sofrimento.',
-          'Ore para que hinos levem esperança aos cristãos secretos.'
-        ], ranking: '14', qr: './QRCodes/QRCode_Mianmar.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'MOÇAMBIQUE',
-        flag: './Bandeiras/Bandeira-Mocambique.avif', flagAlt: 'Bandeira Mocambique', countryName: 'Moçambique',
-        prayers: [
-          'Ore para que Deus fortaleça a igreja através do louvor.',
-          'Ore para que cristãos perseguidos sintam paz ao adorar.',
-          'Ore para que o louvor cure corações traumatizados.'
-        ], ranking: '39', qr: './QRCodes/QRCode_Mocambique.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'NEPAL',
-        flag: './Bandeiras/Bandeira-Nepal.avif', flagAlt: 'Bandeira Nepal', countryName: 'Nepal',
-        prayers: [
-          'Ore para que a adoração fortaleça a fé dos perseguidos.',
-          'Ore para que músicas cristãs tragam esperança aos refugiados.',
-          'Ore para que o louvor leve consolo aos que perderam familiares.'
-        ], ranking: '46', qr: './QRCodes/QRCode_Nepal.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'NICARÁGUA',
-        flag: './Bandeiras/Bandeira-Nicaragua.avif', flagAlt: 'Bandeira Nicaragua', countryName: 'Nicarágua',
-        prayers: [
-          'Ore para que cristãos presos sejam fortalecidos através da adoração.',
-          'Ore para que o louvor fortaleça jovens perseguidos.',
-          'Ore para que crianças cristãs encontrem alegria em Deus.'
-        ], ranking: '32', qr: './QRCodes/QRCode_Nicaragua.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'NÍGER',
-        flag: './Bandeiras/Bandeira-Niger.avif', flagAlt: 'Bandeira Niger', countryName: 'Níger',
-        prayers: [
-          'Ore para que a presença de Deus seja sentida durante o louvor.',
-          'Ore para que a igreja perseguida permaneça adorando com coragem.',
-          'Ore para que louvores levem paz aos que vivem em medo.'
-        ], ranking: '26', qr: './QRCodes/QRCode_Niger.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'NIGÉRIA',
-        flag: './Bandeiras/Bandeira-Nigeria.avif', flagAlt: 'Bandeira Nigeria', countryName: 'Nigéria',
-        prayers: [
-          'Ore para que Deus use a adoração para fortalecer missionários.',
-          'Ore para que famílias perseguidas sejam consoladas pelo Espírito Santo.',
-          'Ore para que o louvor fortaleça cristãos secretos isolados.'
-        ], ranking: '7', qr: './QRCodes/QRCode_Nigeria.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'OMÃ',
-        flag: './Bandeiras/Bandeira-Oma.avif', flagAlt: 'Bandeira Oma', countryName: 'Omã',
-        prayers: [
-          'Ore para que músicas cristãs levem esperança às nações perseguidas.',
-          'Ore para que Deus renove forças através da adoração.',
-          'Ore para que o louvor fortaleça pastores perseguidos.'
-        ], ranking: '38', qr: './QRCodes/QRCode_Oma.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'CATAR',
-        flag: './Bandeiras/Bandeira-Qatar.avif', flagAlt: 'Bandeira Qatar', countryName: 'Catar',
-        prayers: [
-          'Ore para que a igreja encontre alegria mesmo na perseguição.',
-          'Ore para que Deus use canções cristãs para alcançar vidas.',
-          'Ore para que cristãos perseguidos adorem sem medo.'
-        ], ranking: '44', qr: './QRCodes/QRCode_Qatar.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'QUIRGUISTÃO',
-        flag: './Bandeiras/Bandeira-Quirguistao.avif', flagAlt: 'Bandeira Quirguistao', countryName: 'Quirguistão',
-        prayers: [
-          'Ore para que o louvor leve cura emocional aos traumatizados.',
-          'Ore para que a adoração fortaleça a unidade da igreja.',
-          'Ore para que cristãs perseguidos sintam esperança em Cristo.'
-        ], ranking: '40', qr: './QRCodes/QRCode_Quirguistao.png'
-      },
-      {
-        icon: 'icone-coral.png', iconAlt: 'Icone Coral', category: 'CORAL EBENÉZER', countryHeader: 'REP. CENTRO-AFRICANA',
-        flag: './Bandeiras/Bandeira-Rep-Centro-Africana.avif', flagAlt: 'Bandeira Rep Centro Africana', countryName: 'Rep. Centro-Africana',
-        prayers: [
-          'Ore para que louvores tragam descanso aos cansados.',
-          'Ore para que Deus seja glorificado mesmo em meio à perseguição.',
-          'Ore para que a igreja perseguida continue exaltando o nome de Jesus.'
-        ], ranking: '22', qr: './QRCodes/QRCode_RepCentroAfricana.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'REP. DEM. DO CONGO',
-        flag: './Bandeiras/Bandeira-Rep-Democratica-do-Congo.avif', flagAlt: 'Bandeira Rep Democratica do Congo', countryName: 'Rep. Dem. do Congo',
-        prayers: [
-          'Ore para que músicas cristãs levem esperança aos perseguidos.',
-          'Ore para que louvores fortaleçam cristãos secretos.',
-          'Ore para que músicas tragam paz aos que vivem em medo.'
-        ], ranking: '29', qr: './QRCodes/QRCode_RepDemDoCongo.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'SÍRIA',
-        flag: './Bandeiras/Bandeira-Siria.avif', flagAlt: 'Bandeira Siria', countryName: 'Síria',
-        prayers: [
-          'Ore para que o evangelho avance através do louvor.',
-          'Ore para que a adoração fortaleça cristãos presos.',
-          'Ore para que louvores consolem famílias refugiadas.'
-        ], ranking: '6', qr: './QRCodes/QRCode_Siria.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'SOMÁLIA',
-        flag: './Bandeiras/Bandeira-Somalia.avif', flagAlt: 'Bandeira Somalia', countryName: 'Somália',
-        prayers: [
-          'Ore para que músicas cristãs levem esperança às crianças perseguidas.',
-          'Ore para que jovens sejam fortalecidos pelo louvor.',
-          'Ore para que Deus use a música para alcançar vidas.'
-        ], ranking: '43', qr: './QRCodes/QRCode_Somalia.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'SUDÃO',
-        flag: './Bandeiras/Bandeira-Sudao.avif', flagAlt: 'Bandeira Sudao', countryName: 'Sudão',
-        prayers: [
-          'Ore para que cristãs secretos sejam encorajados pela adoração.',
-          'Ore para que louvores tragam cura emocional aos traumatizados.',
-          'Ore para que a música fortaleça missionários em lugares perigosos.'
-        ], ranking: '4', qr: './QRCodes/QRCode_Sudao.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'TAJIQUISTÃO',
-        flag: './Bandeiras/Bandeira-tajiquistao.avif', flagAlt: 'Bandeira Tajiquistao', countryName: 'Tajiquistão',
-        prayers: [
-          'Ore para que canções cristãs tragam esperança aos refugiados.',
-          'Ore para que o louvor fortaleça a igreja clandestina.',
-          'Ore para que músicas cristãs levem paz às famílias perseguidas.'
-        ], ranking: '27', qr: './QRCodes/QRCode_Tajiquistao.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'TUNÍSIA',
-        flag: './Bandeiras/Bandeira-Tunisia.avif', flagAlt: 'Bandeira Tunisia', countryName: 'Tunísia',
-        prayers: [
-          'Ore para que a adoração fortaleça líderes cristãos perseguidos.',
-          'Ore para que cristãs perseguidos encontrem alegria em Deus.',
-          'Ore para que músicas cristãs levem esperança aos presos por amor a Jesus.'
-        ], ranking: '31', qr: './QRCodes/QRCode_Tunisia.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'TURCOMENISTÃO',
-        flag: './Bandeiras/Bandeira-Turcomenistao.avif', flagAlt: 'Bandeira Turcomenistao', countryName: 'Turcomenistão',
-        prayers: [
-          'Ore para que o louvor fortaleça adolescentes perseguidos.',
-          'Ore para que Deus use canções para tocar corações endurecidos.',
-          'Ore para que a música leve consolo aos que perderam familiares.'
-        ], ranking: '35', qr: './QRCodes/QRCode_Turcomenistao.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'TURQUIA',
-        flag: './Bandeiras/Bandeira-Turuia.avif', flagAlt: 'Bandeira Turquia', countryName: 'Turquia',
-        prayers: [
-          'Ore para que o louvor fortaleça mulheres perseguidas.',
-          'Ore para que cristãos perseguidos adorem com coragem.',
-          'Ore para que músicas cristãs fortaleçam a fé dos refugiados.'
-        ], ranking: '41', qr: './QRCodes/QRCode_Turquia.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'UZBEQUISTÃO',
-        flag: './Bandeiras/Bandeira-Usbequistao.avif', flagAlt: 'Bandeira Uzbequistao', countryName: 'Uzbequistão',
-        prayers: [
-          'Ore para que o louvor una a igreja perseguida em oração.',
-          'Ore para que músicas tragam esperança em meio às guerras.',
-          'Ore para que o evangelho alcance novas vidas através do louvor.'
-        ], ranking: '25', qr: './QRCodes/QRCode_Uzbequistao.png'
-      },
-      {
-        icon: 'icone-banda.png', iconAlt: 'Icone Banda', category: 'BANDA SHALOM', countryHeader: 'PAQUISTÃO',
-        flag: './Bandeiras/Bandeira_Paquistao.avif', flagAlt: 'Bandeira Paquistao', countryName: 'Paquistão',
-        prayers: [
-          'Ore para que a presença de Deus fortaleça os perseguidos durante a adoração.',
-          'Ore para que músicas cristãs tragam descanso aos cansados.',
-          'Ore para que Deus seja glorificado através do louvor em todas as nações perseguidas.'
-        ], ranking: '8', qr: './QRCodes/QRCode_Paquistao.png'
-      }
-    ];
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'COREIA DO NORTE', flag: './Bandeiras/Bandeira-Coreia-do-Norte.webp', flagAlt: 'Bandeira Coreia do Norte', countryName: 'Coreia do Norte', prayers: ['Ore para que crianças cristãs sejam protegidas de abusos, violência e vigilância constante.', 'Ore para que Deus guarde crianças separadas dos pais por causa da perseguição.', 'Ore para que meninos e meninas traumatizados encontrem consolo e cura em Jesus.'], ranking: '1', qr: './QRCodes/QRCode_CoreiaDoNorte.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'AFEGANISTÃO', flag: './Bandeiras/Bandeira-Afeganistao.avif', flagAlt: 'Bandeira Afeganistao', countryName: 'Afeganistão', prayers: ['Ore para que crianças cristãs escondidas sejam preservadas da violência e da denúncia.', 'Ore para que meninas sejam protegidas de abusos, exploração e casamentos forçados.', 'Ore para que crianças conheçam o amor de Cristo mesmo em ambientes hostis.'], ranking: '11', qr: './QRCodes/QRCode_Afeganistao.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'ARÁBIA SAUDITA', flag: './Bandeiras/Bandeira-Arabia-Saudita.avif', flagAlt: 'Bandeira Arabia Saudita', countryName: 'Arábia Saudita', prayers: ['Ore para que crianças tenham acesso à Palavra de Deus de forma segura.', 'Ore para que crianças cristãs não sejam sufocadas pelo medo e pela pressão familiar.', 'Ore para que Deus levante proteção sobre os pequenos que sofrem rejeição por causa da fé.'], ranking: '13', qr: './QRCodes/QRCode_ArabiaSaudita.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'ARGÉLIA', flag: './Bandeiras/Bandeira-Argelia.avif', flagAlt: 'Bandeira Argelia', countryName: 'Argélia', prayers: ['Ore para que crianças de famílias cristãs sejam protegidas de intimidação e exclusão.', 'Ore para que Deus console crianças feridas pela perseguição contra seus pais.', 'Ore para que os pequenos cresçam firmes na fé, mesmo em meio à oposição.'], ranking: '20', qr: './QRCodes/QRCode_Argelia.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'BANGLADESH', flag: './Bandeiras/Bandeira-Bngladesh.avif', flagAlt: 'Bandeira Bangladesh', countryName: 'Bangladesh', prayers: ['Ore para que crianças perseguidas sejam livres de abusos, fome e abandono.', 'Ore para que Deus abra portas para abrigo, alimento e cuidado aos pequenos vulneráveis.', 'Ore para que crianças cristãs encontrem esperança no evangelho desde cedo.'], ranking: '33', qr: './QRCodes/QRCode_Bangladesh.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'BRUNEI', flag: './Bandeiras/Bandeira-Brunei.avif', flagAlt: 'Bandeira Brunei', countryName: 'Brunei', prayers: ['Ore para que crianças cristãs sejam fortalecidas para permanecer firmes em ambientes controlados.', 'Ore para que Deus proteja os pequenos de abusos psicológicos e repressão religiosa.', 'Ore para que famílias consigam discipular seus filhos com sabedoria e segurança.'], ranking: '50', qr: './QRCodes/QRCode_Brunei.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'BURKINA FASO', flag: './Bandeiras/Bandeira-Burkina-Faso.avif', flagAlt: 'Bandeira Burkina Faso', countryName: 'Burkina Faso', prayers: ['Ore para que crianças sejam protegidas de ataques extremistas e deslocamentos forçados.', 'Ore para que meninas cristãs sejam guardadas de abusos e casamentos forçados.', 'Ore para que Deus preserve a alegria e a fé das crianças em meio ao terror.'], ranking: '16', qr: './QRCodes/QRCode_BurkinaFaso.png' },
+      { category: 'ORE PELAS CRIANÇAS', countryHeader: 'BUTÃO', flag: './Bandeiras/Bandeira-Butao.webp', flagAlt: 'Bandeira Butao', countryName: 'Butão', prayers: ['Ore para que crianças sejam alcançadas pelo amor de Cristo em lares resistentes ao evangelho.', 'Ore para que crianças cristãs não percam a esperança diante da rejeição.', 'Ore para que Deus fortaleça pais cristãos na proteção e formação espiritual dos filhos.'], ranking: '34', qr: './QRCodes/QRCode_Butao.png' },
+
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'CAMARÕES', flag: './Bandeiras/Bandeira-Camaroes.avif', flagAlt: 'Bandeira Camaroes', countryName: 'Camarões', prayers: ['Ore para que adolescentes sejam protegidos do recrutamento forçado por grupos violentos.', 'Ore para que adolescentes cristãos tenham coragem para permanecer fiéis a Jesus.', 'Ore para que Deus livre jovens vulneráveis da manipulação, do medo e da violência extremista.'], ranking: '37', qr: './QRCodes/QRCode_Camaroes.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'CAZAQUISTÃO', flag: './Bandeiras/Bandeira-Cazaquistao.avif', flagAlt: 'Bandeira Cazaquistao', countryName: 'Cazaquistão', prayers: ['Ore para que adolescentes perseguidos sejam curados de traumas emocionais.', 'Ore para que adolescentes encontrem comunhão segura e discipulado fiel.', 'Ore para que uma nova geração de adolescentes siga Jesus com ousadia.'], ranking: '45', qr: './QRCodes/QRCode_Cazaquistao.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'CHADE', flag: './Bandeiras/Bandeira-Chade.avif', flagAlt: 'Bandeira Chade', countryName: 'Chade', prayers: ['Ore para que adolescentes cristãos permaneçam firmes diante da perseguição.', 'Ore para que adolescentes sejam protegidos da violência, intimidação e recrutamento armado.', 'Ore para que Deus guarde os que vivem sob ameaça por escolherem seguir a Cristo.'], ranking: '2', qr: './QRCodes/QRCode_Chade.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'CHINA', flag: './Bandeiras/Bandeira-China.avif', flagAlt: 'Bandeira China', countryName: 'China', prayers: ['Ore para que adolescentes cristãos tenham coragem para seguir Jesus sob vigilância.', 'Ore para que adolescentes encontrem comunhão segura com outros cristãos.', 'Ore para que Deus fortaleça emocionalmente os adolescentes pressionados pelo sistema.'], ranking: '17', qr: './QRCodes/QRCode_China.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'COLÔMBIA', flag: './Bandeiras/Bandeira-Colombia.avif', flagAlt: 'Bandeira Colombia', countryName: 'Colômbia', prayers: ['Ore para que adolescentes sejam protegidos do recrutamento forçado por grupos armados.', 'Ore para que adolescentes refugiados encontrem acolhimento e proteção.', 'Ore para que adolescentes cristãos tenham acesso à Bíblia e permaneçam firmes.'], ranking: '47', qr: './QRCodes/QRCode_Colombia.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'COMORES', flag: './Bandeiras/Bandeira-Comores.avif', flagAlt: 'Bandeira Comores', countryName: 'Comores', prayers: ['Ore para que adolescentes encontrem paz em meio ao medo e à pressão religiosa.', 'Ore para que adolescentes sejam protegidos de abusos, exploração e coerção.', 'Ore para que adolescentes cristãos não desistam da fé diante da rejeição.'], ranking: '14', qr: './QRCodes/QRCode_Comores.png' },
+      { category: 'ORE PELOS ADOLESCENTES', countryHeader: 'CUBA', flag: './Bandeiras/Bandeira-Cuba.avif', flagAlt: 'Bandeira Cuba', countryName: 'Cuba', prayers: ['Ore para que adolescentes encontrem apoio espiritual e emocional em suas famílias.', 'Ore para que adolescentes cristãos sejam fortalecidos pelo Espírito Santo.', 'Ore para que adolescentes perseguidos não sejam silenciados pelo medo.'], ranking: '24', qr: './QRCodes/QRCode_Cuba.png' },
+
+      { category: 'ORE PELOS JOVENS', countryHeader: 'EGITO', flag: './Bandeiras/Bandeira-egito.avif', flagAlt: 'Bandeira Egito', countryName: 'Egito', prayers: ['Ore para que jovens sejam protegidos da discriminação e da violência por causa da fé.', 'Ore para que jovens tenham sabedoria para testemunhar de Cristo com prudência.', 'Ore para que jovens perseguidos sintam o amor e o cuidado de Deus diariamente.'], ranking: '42', qr: './QRCodes/QRCode_Egito.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'ERITEIA', flag: './Bandeiras/Bandeira-Eriteia.avif', flagAlt: 'Bandeira Eriteia', countryName: 'Eriteia', prayers: ['Ore para que jovens cristãos sejam luz em suas escolas e comunidades.', 'Ore para que jovens encontrem segurança em meio aos conflitos e à repressão.', 'Ore para que Deus cure traumas emocionais causados pela perseguição.'], ranking: '5', qr: './QRCodes/QRCode_Eritreia.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'ETIÓPIA', flag: './Bandeiras/Bandeira-Etiopia.avif', flagAlt: 'Bandeira Etiopia', countryName: 'Etiópia', prayers: ['Ore para que jovens cristãos permaneçam cheios de esperança.', 'Ore para que jovens tenham oportunidades de estudar e crescer em paz.', 'Ore para que jovens perseguidos sejam consolados e fortalecidos por Deus.'], ranking: '36', qr: './QRCodes/QRCode_Etiopia.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'IÊMEN', flag: './Bandeiras/Bandeira-Iemen.avif', flagAlt: 'Bandeira Iemen', countryName: 'Iêmen', prayers: ['Ore para que jovens cristãos permaneçam firmes diante da perseguição extrema.', 'Ore para que jovens tenham coragem para seguir Jesus mesmo em segredo.', 'Ore para que jovens perseguidos sejam fortalecidos na fé e preservados da morte.'], ranking: '3', qr: './QRCodes/QRCode_Iemen.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'ÍNDIA', flag: './Bandeiras/Bandeira-India.avif', flagAlt: 'Bandeira India', countryName: 'Índia', prayers: ['Ore para que jovens encontrem esperança em Cristo em meio à hostilidade.', 'Ore para que jovens cristãos tenham sabedoria para evangelizar com prudência.', 'Ore para que jovens refugiados encontrem acolhimento, provisão e proteção.'], ranking: '12', qr: './QRCodes/QRCode_India.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'IRÃ', flag: './Bandeiras/Bandeira-ira.avif', flagAlt: 'Bandeira Ira', countryName: 'Irã', prayers: ['Ore para que jovens sejam protegidos da violência extremista e da repressão.', 'Ore para que jovens cristãos sejam fortalecidos emocionalmente.', 'Ore para que jovens encontrem oportunidades de estudo e trabalho sem negar a fé.'], ranking: '10', qr: './QRCodes/QRCode_Ira.png' },
+      { category: 'ORE PELOS JOVENS', countryHeader: 'IRAQUE', flag: './Bandeiras/Bandeira-Iraque.avif', flagAlt: 'Bandeira Iraque', countryName: 'Iraque', prayers: ['Ore para que jovens perseguidos sejam encorajados pela Palavra de Deus.', 'Ore para que jovens cristãos tenham comunhão segura e apoio mútuo.', 'Ore para que jovens sejam protegidos do recrutamento forçado e da violência.'], ranking: '18', qr: './QRCodes/QRCode_Iraque.png' },
+
+      { category: 'ORE PELAS MULHERES', countryHeader: 'JORDÂNIA', flag: './Bandeiras/Bandeira-Jordania.avif', flagAlt: 'Bandeira Jordania', countryName: 'Jordânia', prayers: ['Ore para que mulheres cristãs encontrem paz em meio aos conflitos e à pressão social.', 'Ore para que mulheres sejam protegidas de abusos, ameaças e rejeição familiar.', 'Ore para que Deus fortaleça aquelas que seguem a Cristo em secreto.'], ranking: '49', qr: './QRCodes/QRCode_Jordania.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'LAOS', flag: './Bandeiras/Bandeira-Laos.avif', flagAlt: 'Bandeira Laos', countryName: 'Laos', prayers: ['Ore para que mulheres perseguidas sejam consoladas por Deus.', 'Ore para que mulheres encontrem alegria no Senhor mesmo sob opressão.', 'Ore para que Deus fortaleça mulheres líderes de seus lares na fé.'], ranking: '28', qr: './QRCodes/QRCode_Laos.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'LÍBIA', flag: './Bandeiras/Bandeira-Libia.avif', flagAlt: 'Bandeira Libia', countryName: 'Líbia', prayers: ['Ore para que mulheres tenham coragem para permanecer fiéis a Cristo.', 'Ore para que mulheres cristãs sejam protegidas de abusos, discriminação e violência.', 'Ore para que mulheres encontrem segurança em meio à perseguição e ao isolamento.'], ranking: '9', qr: './QRCodes/QRCode_Libia.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'MALDIVAS', flag: './Bandeiras/Bandeira-Maldivas.avif', flagAlt: 'Bandeira Maldivas', countryName: 'Maldivas', prayers: ['Ore para que mulheres tenham esperança em tempos difíceis.', 'Ore para que mulheres cristãs sejam fortalecidas pelo Senhor em meio à pressão.', 'Ore para que mulheres perseguidas tenham suas necessidades supridas e sejam protegidas.'], ranking: '19', qr: './QRCodes/QRCode_Maldivas.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'MALI', flag: './Bandeiras/Bandeira-Mali.avif', flagAlt: 'Bandeira Mali', countryName: 'Mali', prayers: ['Ore para que mulheres cristãs permaneçam unidas em oração.', 'Ore para que mulheres encontrem propósito em Cristo mesmo em meio ao sofrimento.', 'Ore para que Deus proteja mulheres vulneráveis de abusos e violência extremista.'], ranking: '15', qr: './QRCodes/QRCode_Mali.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'MARROCOS', flag: './Bandeiras/Bandeira-Marrocos.avif', flagAlt: 'Bandeira Marrocos', countryName: 'Marrocos', prayers: ['Ore para que mulheres cristãs tenham fé e perseverança diante da rejeição.', 'Ore para que mulheres perseguidas sejam protegidas de abusos, prisão e violência.', 'Ore para que Deus levante mulheres apaixonadas por Jesus e cheias de coragem.'], ranking: '23', qr: './QRCodes/QRCode_Marrocos.png' },
+      { category: 'ORE PELAS MULHERES', countryHeader: 'MAURITÂNIA', flag: './Bandeiras/Bandeira-Mauritania.avif', flagAlt: 'Bandeira Mauritania', countryName: 'Mauritânia', prayers: ['Ore para que mulheres encontrem alegria em Cristo mesmo sob forte opressão.', 'Ore para que mulheres sejam protegidas da pressão extremista e de abusos.', 'Ore para que mulheres cristãs cresçam em maturidade espiritual e firmeza.'], ranking: '21', qr: './QRCodes/QRCode_Mauritania.png' },
+
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'MÉXICO', flag: './Bandeiras/Bandeira-Mexico.avif', flagAlt: 'Bandeira Mexico', countryName: 'México', prayers: ['Ore para que obreiros e líderes tenham coragem diante das ameaças.', 'Ore para que Deus dê direção, discernimento e estratégias do Espírito Santo.', 'Ore para que líderes perseguidos encontrem descanso, proteção e sabedoria pastoral.'], ranking: '30', qr: './QRCodes/QRCode_Mexico.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'MIANMAR', flag: './Bandeiras/Bandeira-Mianmar.avif', flagAlt: 'Bandeira Mianmar', countryName: 'Mianmar', prayers: ['Ore para que obreiros fortaleçam a igreja em meio à guerra e perseguição.', 'Ore para que líderes recebam estratégias do Espírito Santo para cuidar do rebanho.', 'Ore para que pastores e cooperadores não desfaleçam diante da violência.'], ranking: '14', qr: './QRCodes/QRCode_Mianmar.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'MOÇAMBIQUE', flag: './Bandeiras/Bandeira-Mocambique.avif', flagAlt: 'Bandeira Mocambique', countryName: 'Moçambique', prayers: ['Ore para que obreiros sejam fortalecidos para servir em áreas traumatizadas.', 'Ore para que líderes tenham direção divina para consolar e reconstruir vidas.', 'Ore para que Deus dê estratégias espirituais para enfrentar o avanço da violência.'], ranking: '39', qr: './QRCodes/QRCode_Mocambique.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'NEPAL', flag: './Bandeiras/Bandeira-Nepal.avif', flagAlt: 'Bandeira Nepal', countryName: 'Nepal', prayers: ['Ore para que líderes fortaleçam a fé dos perseguidos com sabedoria.', 'Ore para que obreiros recebam ousadia e discernimento do Espírito Santo.', 'Ore para que Deus sustente pastores que cuidam de famílias feridas pela perseguição.'], ranking: '46', qr: './QRCodes/QRCode_Nepal.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'NICARÁGUA', flag: './Bandeiras/Bandeira-Nicaragua.avif', flagAlt: 'Bandeira Nicaragua', countryName: 'Nicarágua', prayers: ['Ore para que líderes cristãos permaneçam firmes sob pressão governamental.', 'Ore para que obreiros tenham estratégias do Espírito Santo para continuar servindo.', 'Ore para que Deus proteja pastores e líderes ameaçados ou vigiados.'], ranking: '32', qr: './QRCodes/QRCode_Nicaragua.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'NÍGER', flag: './Bandeiras/Bandeira-Niger.avif', flagAlt: 'Bandeira Niger', countryName: 'Níger', prayers: ['Ore para que obreiros tenham coragem para permanecer em áreas perigosas.', 'Ore para que líderes recebam direção do Espírito Santo para proteger a igreja.', 'Ore para que Deus dê sabedoria estratégica aos que servem em meio ao medo.'], ranking: '26', qr: './QRCodes/QRCode_Niger.png' },
+      { category: 'ORE PELOS OBREIROS E LÍDERES', countryHeader: 'NIGÉRIA', flag: './Bandeiras/Bandeira-Nigeria.avif', flagAlt: 'Bandeira Nigeria', countryName: 'Nigéria', prayers: ['Ore para que obreiros e líderes sejam fortalecidos para cuidar dos perseguidos.', 'Ore para que Deus dê estratégias do Espírito Santo diante dos ataques violentos.', 'Ore para que pastores e líderes não desanimem após perdas e traumas.'], ranking: '7', qr: './QRCodes/QRCode_Nigeria.png' },
+
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'OMÃ', flag: './Bandeiras/Bandeira-Oma.avif', flagAlt: 'Bandeira Oma', countryName: 'Omã', prayers: ['Ore para que missionários tenham ousadia e sensibilidade para anunciar Cristo.', 'Ore para que missionários sejam protegidos de expulsão, deportação e vigilância.', 'Ore para que Deus preserve a vida dos que servem em campos difíceis.'], ranking: '38', qr: './QRCodes/QRCode_Oma.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'CATAR', flag: './Bandeiras/Bandeira-Qatar.avif', flagAlt: 'Bandeira Qatar', countryName: 'Catar', prayers: ['Ore para que missionários encontrem portas abertas para compartilhar o evangelho.', 'Ore para que Deus os livre de deportação, denúncias e impedimentos legais.', 'Ore para que missionários sejam cheios de sabedoria e coragem no serviço.'], ranking: '44', qr: './QRCodes/QRCode_Qatar.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'QUIRGUISTÃO', flag: './Bandeiras/Bandeira-Quirguistao.avif', flagAlt: 'Bandeira Quirguistao', countryName: 'Quirguistão', prayers: ['Ore para que missionários levem esperança aos traumatizados.', 'Ore para que Deus proteja missionários de expulsão, perseguição e violência.', 'Ore para que o Espírito Santo conduza cada passo dos que servem nesse campo.'], ranking: '40', qr: './QRCodes/QRCode_Quirguistao.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'REP. CENTRO-AFRICANA', flag: './Bandeiras/Bandeira-Rep-Centro-Africana.avif', flagAlt: 'Bandeira Rep Centro Africana', countryName: 'Rep. Centro-Africana', prayers: ['Ore para que missionários levem consolo aos cansados e feridos.', 'Ore para que Deus proteja missionários da morte, de ataques e emboscadas.', 'Ore para que missionários permaneçam firmes mesmo em cenários de extrema violência.'], ranking: '22', qr: './QRCodes/QRCode_RepCentroAfricana.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'REP. DEM. DO CONGO', flag: './Bandeiras/Bandeira-Rep-Democratica-do-Congo.avif', flagAlt: 'Bandeira Rep Democratica do Congo', countryName: 'Rep. Dem. do Congo', prayers: ['Ore para que missionários levem esperança aos perseguidos e deslocados.', 'Ore para que Deus os livre de ataques, expulsões e ameaças de morte.', 'Ore para que missionários tenham força para continuar servindo em meio ao caos.'], ranking: '29', qr: './QRCodes/QRCode_RepDemDoCongo.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'SÍRIA', flag: './Bandeiras/Bandeira-Siria.avif', flagAlt: 'Bandeira Siria', countryName: 'Síria', prayers: ['Ore para que missionários sejam instrumentos de consolo entre refugiados e perseguidos.', 'Ore para que Deus os proteja de deportação, prisão e morte.', 'Ore para que missionários tenham estratégias sábias para servir em meio à guerra.'], ranking: '6', qr: './QRCodes/QRCode_Siria.png' },
+      { category: 'ORE PELOS MISSIONÁRIOS', countryHeader: 'SOMÁLIA', flag: './Bandeiras/Bandeira-Somalia.avif', flagAlt: 'Bandeira Somalia', countryName: 'Somália', prayers: ['Ore para que missionários sejam guardados em um dos campos mais perigosos.', 'Ore para que Deus livre missionários da morte, da denúncia e da expulsão.', 'Ore para que vidas sejam alcançadas por Cristo através do testemunho fiel deles.'], ranking: '43', qr: './QRCodes/QRCode_Somalia.png' },
+
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'SUDÃO', flag: './Bandeiras/Bandeira-Sudao.avif', flagAlt: 'Bandeira Sudao', countryName: 'Sudão', prayers: ['Ore para que músicos usem o louvor para encorajar cristãos feridos e perseguidos.', 'Ore para que o louvor toque profundamente os corações dos ouvintes.', 'Ore para que Deus fortaleça músicos que ministram em ambientes perigosos.'], ranking: '4', qr: './QRCodes/QRCode_Sudao.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'TAJIQUISTÃO', flag: './Bandeiras/Bandeira-tajiquistao.avif', flagAlt: 'Bandeira Tajiquistao', countryName: 'Tajiquistão', prayers: ['Ore para que canções cristãs levem esperança aos refugiados e perseguidos.', 'Ore para que músicos sejam guiados pelo Espírito Santo em cada ministração.', 'Ore para que o louvor alcance corações endurecidos e gere sede por Cristo.'], ranking: '27', qr: './QRCodes/QRCode_Tajiquistao.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'TUNÍSIA', flag: './Bandeiras/Bandeira-Tunisia.avif', flagAlt: 'Bandeira Tunisia', countryName: 'Tunísia', prayers: ['Ore para que músicos fortaleçam a fé dos cristãos perseguidos.', 'Ore para que o louvor leve esperança aos que sofrem por amor a Jesus.', 'Ore para que as canções toquem os corações dos ouvintes e abram portas ao evangelho.'], ranking: '31', qr: './QRCodes/QRCode_Tunisia.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'TURCOMENISTÃO', flag: './Bandeiras/Bandeira-Turcomenistao.avif', flagAlt: 'Bandeira Turcomenistao', countryName: 'Turcomenistão', prayers: ['Ore para que músicos levem consolo aos que perderam familiares.', 'Ore para que Deus use canções para tocar corações endurecidos.', 'Ore para que o louvor fortaleça adolescentes e famílias perseguidas.'], ranking: '35', qr: './QRCodes/QRCode_Turcomenistao.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'TURQUIA', flag: './Bandeiras/Bandeira-Turuia.avif', flagAlt: 'Bandeira Turquia', countryName: 'Turquia', prayers: ['Ore para que músicos fortaleçam a fé de refugiados e perseguidos.', 'Ore para que o louvor toque os corações dos ouvintes com a verdade de Cristo.', 'Ore para que cristãos adorem com coragem mesmo em meio à pressão.'], ranking: '41', qr: './QRCodes/QRCode_Turquia.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'UZBEQUISTÃO', flag: './Bandeiras/Bandeira-Usbequistao.avif', flagAlt: 'Bandeira Uzbequistao', countryName: 'Uzbequistão', prayers: ['Ore para que o louvor una a igreja perseguida em oração.', 'Ore para que músicas tragam esperança em meio às guerras e crises.', 'Ore para que Deus alcance novas vidas através das canções ministradas.'], ranking: '25', qr: './QRCodes/QRCode_Uzbequistao.png' },
+      { category: 'ORE PELOS MÚSICOS', countryHeader: 'PAQUISTÃO', flag: './Bandeiras/Bandeira_Paquistao.avif', flagAlt: 'Bandeira Paquistao', countryName: 'Paquistão', prayers: ['Ore para que músicos ministrem sob a presença de Deus e fortaleçam os perseguidos.', 'Ore para que músicas cristãs tragam descanso aos cansados e aflitos.', 'Ore para que o louvor toque os corações dos ouvintes e glorifique a Cristo.'], ranking: '8', qr: './QRCodes/QRCode_Paquistao.png' }
+    ].map(card => ({
+      ...card,
+      icon: categoryIcons[card.category],
+      iconAlt: `Icone ${card.category}`
+    }));
 
     function createImage(className, src, alt) {
       return `<img class="${className}" src="${src}" alt="${alt}" onerror="this.style.display='none'"/>`;
